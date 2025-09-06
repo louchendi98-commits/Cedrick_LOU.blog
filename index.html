@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>楼晨笛 · 个人主页</title>
+  <meta name="description" content="楼晨笛 — 博士研究生｜深地工程与岩石动力学" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <header id="top">
+    <div class="header-inner container">
+      <div class="brand">
+        <a class="logo" href="index.html">Cedrick LOU</a>
+        <span class="sub">Hi！欢迎来到我的个人网站！</span>
+      </div>
+
+      <nav aria-label="主导航" class="nav-wrap">
+        <ul id="nav-list" class="nav-list">
+          <li><a href="#hero">首页</a></li>
+          <li><a href="#education">教育</a></li>
+          <li><a href="#publications">成果</a></li>
+          <li><a href="#projects">项目</a></li>
+          <li><a href="#contact">联系</a></li>
+        </ul>
+      </nav>
+
+      <button id="menu-toggle" class="menu-btn" aria-label="菜单">☰</button>
+    </div>
+
+    <div id="mobile-nav-overlay" class="mobile-nav-overlay" aria-hidden="true">
+      <div class="mobile-nav" role="dialog" aria-label="移动导航">
+        <button id="mobile-close" class="mobile-close" aria-label="关闭">✕</button>
+        <ul>
+          <li><a href="#hero">首页</a></li>
+          <li><a href="#education">教育</a></li>
+          <li><a href="#publications">成果</a></li>
+          <li><a href="#projects">项目</a></li>
+          <li><a href="#contact">联系</a></li>
+          <li><a href="publications.html">所有成果</a></li>
+          <li><a href="projects.html">所有项目</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="panel">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="container hero-split" id="hero-content" role="region" aria-label="首屏信息">
+        <!-- 左侧：在宽屏为垂直，在窄屏切换为 横向(头像左, meta 右) -->
+        <div class="hero-left">
+          <img src="assets/profile2.jpg" alt="楼晨笛 头像" class="hero-avatar" />
+          <div class="hero-meta">
+            <h1 class="name">楼晨笛</h1>
+            <p class="role">深地岩石力学与工程 · 博士研究生</p>
+            <div class="quick-links">
+              <a class="small-link" href="https://www.researchgate.net/profile/Chendi-Lou" target="_blank" rel="noopener">ResearchGate</a>
+              <span class="dot">·</span>
+              <a class="small-link" href="https://scholar.google.com/citations?user=p43OS20AAAAJ&hl=zh-CN" target="_blank" rel="noopener">Google Scholar</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 分割：桌面竖线、窄屏水平线（下方为关于我） -->
+        <div class="hero-divider" aria-hidden="true"></div>
+
+        <!-- 右侧：关于我（在小屏“关于我”标题会被隐藏，正文缩小） -->
+        <div class="hero-right">
+          <h2 class="hero-about-title">关于我</h2>
+          <p class="hero-about-text">
+            四川大学在读博士研究生，师从张茹教授，主要研究方向为深地科学与工程、岩石动态力学响应及深部工程灾变相关的基础科学理论及应用，
+        	已发表学术论文十余篇，授权专利二十余项，
+        	参与国自然杰出青年项目、联合基金重点项目、中国工程院科技发展战略咨询项目等多项。
+          </p>
+          <p class="keywords">关键词：岩石力学 · 地下工程 · 动态本构 · 数值模拟</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="panel">
+      <div class="container">
+        <h2>教育经历</h2>
+
+        <div class="timeline improved">
+          <div class="entry">
+            <div class="date">2022.09 – 2026.06</div>
+            <img class="school-logo" src="assets/scu.png" alt="四川大学徽标">
+            <div class="content">
+              <h3>博士</h3>
+              <div class="subline">四川大学 — 安全科学与减灾（安全科学与技术）</div>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="date">2020.09 – 2022.06</div>
+            <img class="school-logo" src="assets/scu.png" alt="四川大学徽标">
+            <div class="content">
+              <h3>硕士</h3>
+              <div class="subline">四川大学 — 土木工程（岩土工程）</div>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="date">2016.09 – 2020.06</div>
+            <img class="school-logo" src="assets/scu.png" alt="四川大学徽标">
+            <div class="content">
+              <h3>学士</h3>
+              <div class="subline">四川大学 — 水利水电工程（卓越工程师）</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="panel">
+      <div class="container">
+        <h2>科研成果</h2>
+
+        <ol class="pub-list roomy">
+          <li>
+            <div class="col-left">
+              <div class="title-row">Dynamic mechanical characteristics of deep Jinping marble in complex stress environments</div>
+              <div class="meta-row">作者：C Lou, H Xie, R Zhang, H Ren, H Luo, K Xiao, Y Peng, Q Tan, L Ren</div>
+            </div>
+            <div class="col-right">
+              <a class="extlink soft" href="https://www.sciencedirect.com/science/article/pii/S1674775523002603" target="_blank">查看</a>
+            </div>
+          </li>
+        </ol>
+
+
+        <ol class="pub-list roomy">
+          <li>
+            <div class="col-left">
+              <div class="title-row">Water-rock interaction-induced degradation of Jinping marble in in-situ environments: A multi-scale analysis of mechanical behavior</div>
+              <div class="meta-row">作者：C Lou, R Zhang, Z Zhang, L Ren, J Xie, K Xiao, M Li, J Zhou, A Zhang</div>
+            </div>
+            <div class="col-right">
+              <a class="extlink soft" href="https://www.sciencedirect.com/science/article/pii/S1365160924003769" target="_blank">查看</a>
+            </div>
+          </li>
+        </ol>
+
+
+        <ol class="pub-list roomy">
+          <li>
+            <div class="col-left">
+              <div class="title-row">Mechanical properties of marble with different joint inclinations under engineering disturbance</div>
+              <div class="meta-row">作者：CD Lou, J Xie, ES Zha, Z Ru, L Ren, ZT Zhang, XL Liu, K Xiao</div>
+            </div>
+            <div class="col-right">
+              <a class="extlink soft" href="https://doiserbia.nb.rs/Article.aspx?ID=0354-98362305829L" target="_blank">查看</a>
+            </div>
+          </li>
+        </ol>
+
+
+        <ol class="pub-list roomy">
+          <li>
+            <div class="col-left">
+              <div class="title-row">Determination and numerical simulation for HJC constitutive model parameters of Jinping marble</div>
+              <div class="meta-row">作者：CD Lou, R Zhang, L Ren, JF Zhou, Y Peng, ZT Zhang</div>
+            </div>
+            <div class="col-right">
+              <a class="extlink soft" href="https://onepetro.org/ISRMARMS/proceedings-abstract/ARMS1121/All-ARMS1121/541389" target="_blank">查看</a>
+            </div>
+          </li>
+        </ol>
+
+
+        <ol class="pub-list roomy">
+          <li>
+            <div class="col-left">
+              <div class="title-row">碳中和背景下的水资源利用与保护</div>
+              <div class="meta-row">作者：张茹， 楼晨笛， 张泽天， 黄晓荣， 谢晶， 郝齐钧， 张岚斌， 李怡航， 刘小玲</div>
+            </div>
+            <div class="col-right">
+              <a class="extlink soft" href="https://onepetro.org/ISRMARMS/proceedings-abstract/ARMS1121/All-ARMS1121/541389" target="_blank">查看</a>
+            </div>
+          </li>
+        </ol>
+
+
+
+
+
+
+        <p class="more-link"><a class="btn-more" href="publications.html">More +</a></p>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="panel">
+      <div class="container">
+        <h2>项目参与</h2>
+
+        <ol class="pub-list roomy projects-list">
+          <li>
+            <div class="col-left">
+              <div class="title-row">深地岩体多场时变原位探测与耦合规律研究</div>
+              <div class="meta-row">核心研究人员：课题三执行负责人</div>
+            </div>
+            <div class="col-right"><a class="extlink soft" href="project1.html">查看</a></div>
+          </li>
+        </ol>
+
+
+
+        <ol class="pub-list roomy projects-list">
+          <li>
+            <div class="col-left">
+              <div class="title-row">不同深度岩体工程力学特性与渗流长期稳定性研究</div>
+              <div class="meta-row">核心研究人员：课题四执行负责人</div>
+            </div>
+            <div class="col-right"><a class="extlink soft" href="project2.html">查看</a></div>
+          </li>
+        </ol>
+    
+    
+            <ol class="pub-list roomy projects-list">
+          <li>
+            <div class="col-left">
+              <div class="title-row">深地岩体力学与工程安全</div>
+              <div class="meta-row">核心研究人员</div>
+            </div>
+            <div class="col-right"><a class="extlink soft" href="project3.html">查看</a></div>
+          </li>
+        </ol>
+
+        <p class="more-link"><a class="btn-more" href="projects.html">More +</a></p>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+    <!-- CV -->
+    <section id="cv-download" class="panel">
+      <div class="container small-cv">
+        <h2>个人 CV</h2>
+        <p class="cv-line">在线查看： <a class="btn-more small" href="https://docs.qq.com/pdf/DQkpkY3Z2SWpGcmxP" target="_blank" rel="noopener">查看在线 CV</a></p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <footer id="contact" class="panel">
+      <div class="container contact-wrap">
+        <div class="contact-left">
+          <h3>联系方式</h3>
+          <p>phone: <strong>13258161081</strong></p>
+          <p>Email: <a class="email-link" href="mailto:louchendi@stu.scu.edu.cn">louchendi@stu.scu.edu.cn</a></p>
+        </div>
+        <div class="contact-right">
+          <p class="small-note">© 2025 楼晨笛。保留所有权利。</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
