@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>欢迎 — 楼晨笛</title>
+
+  <!-- 字体（可选：若离线请删除这行） -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/welcome.css" />
+  <script defer src="js/welcome.js"></script>
+</head>
+<body>
+  <div class="welcome-root" id="welcomeRoot" role="dialog" aria-label="欢迎页">
+    <!-- 背景 -->
+    <div class="welcome-bg" aria-hidden="true"></div>
+    <div class="overlay" aria-hidden="true"></div>
+
+    <!-- 中央文字（无方框） -->
+    <main class="center-wrap" id="centerWrap" role="main" aria-labelledby="welcome-title">
+      <h1 id="welcome-title" class="title">欢迎</h1>
+
+      <div class="typed-wrap" aria-live="polite">
+        <span id="typed" class="typed"></span><span class="cursor" aria-hidden="true">▎</span>
+      </div>
+    </main>
+
+    <!-- 简约向下箭头（底部中央） -->
+    <button id="downArrow" class="down-arrow" aria-label="向下滚动进入主页">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 5v14" stroke="rgba(255,255,255,0.85)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M19 12l-7 7-7-7" stroke="rgba(255,255,255,0.85)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <!-- 右下 EN 按钮 -->
+    <button id="enBtn" class="en-btn" aria-label="English">EN</button>
+  </div>
+</body>
+</html>

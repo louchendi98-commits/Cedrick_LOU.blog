@@ -60,7 +60,10 @@
 
           <li>
             <div class="left-col">
-              <div class="title-row">…</div>
+              <div class="title-row">更多项目…</div>
+              <div class="meta-row">点击“查看”获取全部信息</div>
+            </div>
+            <div class="link-row"><a class="extlink soft" href="projects_all.html">查看</a></div>
           </li>
 
           <!-- 继续补全更多项目 -->

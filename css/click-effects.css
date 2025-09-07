@@ -1,0 +1,39 @@
+/* click-effects.css
+   全站点击特效：ripple + fireworks（样式）
+*/
+
+/* 全站波纹基础样式 */
+.ce-ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  background: rgba(255,255,255,0.14);
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+  animation: ce_ripple_anim 650ms cubic-bezier(.2,.7,.3,1);
+  z-index: 9999;
+}
+
+@keyframes ce_ripple_anim {
+  to { transform: translate(-50%, -50%) scale(12); opacity: 0; }
+}
+
+/* canvas 覆盖层（礼花） */
+.ce-fireworks-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none; /* 不阻挡页面操作 */
+  z-index: 9998;
+}
+
+/* 可选：礼花小粒子阴影/光晕（如果你想用 DOM 粒子而不是 canvas） */
+.ce-particle {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  will-change: transform, opacity;
+}
+
+/* 小提示：如果你的站点有深色背景，ripple 的颜色可以改为 rgba(255,255,255,0.12)
+   若浅底色改成 rgba(0,0,0,0.12)。在 js 中也可以覆盖该颜色。 */

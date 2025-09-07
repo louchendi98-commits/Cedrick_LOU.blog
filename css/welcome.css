@@ -1,0 +1,115 @@
+/* welcome.css — 更简约高级版（无方框，中英文按钮维持） */
+:root{
+  --accent:#6f99b6;          /* 点缀色 */
+  --text-strong:#eef2f5;     /* 主要文字 */
+  --typed-color:#bfc6c9;     /* 打字文字（浅灰） */
+  --overlay-dark: rgba(8,10,12,0.68);
+  --glass-top: rgba(255,255,255,0.02);
+  --glass-bottom: rgba(255,255,255,0.01);
+  --ripple: rgba(255,255,255,0.12);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  background:#000;
+  color:var(--text-strong);
+  font-family: "Poppins", "Microsoft YaHei", "微软雅黑", system-ui, Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* 根与背景 */
+.welcome-root{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.welcome-bg{
+  position:absolute; inset:0;
+  background-image:url('../assets/background.jpg');
+  background-size:cover; background-position:center center;
+  transform:scale(1.02); filter:contrast(0.92) saturate(0.96);
+  z-index:0; transition:transform .9s ease, filter .9s ease;
+}
+.overlay{
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg, rgba(6,8,10,0.46), var(--overlay-dark));
+  backdrop-filter: blur(2px);
+}
+
+/* 中央文字容器（无方框） */
+.center-wrap{ position:relative; z-index:3; text-align:center; padding:12px 20px; user-select:none }
+
+/* 主标题 */
+.title{
+  margin:0; font-weight:800;
+  font-size: clamp(36px, 8.0vw, 78px);
+  color:var(--text-strong);
+  letter-spacing:0.6px;
+  line-height:1;
+  text-shadow: 0 6px 30px rgba(0,0,0,0.55);
+}
+
+/* 打字动画文本 */
+.typed-wrap{ display:flex; align-items:center; justify-content:center; gap:8px; min-height:50px; margin-top:12px; }
+.typed{
+  font-family:"Poppins","Microsoft YaHei",sans-serif;
+  font-weight:600;
+  font-size: clamp(15px, 2.2vw, 20px);
+  color:var(--typed-color);
+  white-space:pre; letter-spacing:0.3px;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.45);
+}
+.cursor{ color:var(--accent); animation: blink 1s steps(2,end) infinite; margin-left:4px; }
+
+/* 向下箭头（简约、半透明、中央底部） */
+.down-arrow{
+  position:fixed; left:50%; transform:translateX(-50%); bottom:26px; z-index:40;
+  width:62px; height:62px; border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008));
+  border:1px solid rgba(255,255,255,0.04);
+  box-shadow:0 10px 30px rgba(2,6,12,0.36); cursor:pointer;
+  transition: transform .16s ease, box-shadow .16s ease, opacity .18s ease;
+}
+.down-arrow:active{ transform:translateX(-50%) translateY(3px) scale(.997) }
+.down-arrow svg{ display:block }
+.down-arrow:hover{ transform:translateX(-50%) translateY(-6px); box-shadow:0 18px 44px rgba(2,6,12,0.44); }
+
+/* EN 按钮（右下，低调） */
+.en-btn{
+  position:fixed; right:18px; bottom:18px; z-index:45;
+  min-width:48px; min-height:42px; padding:8px 12px; border-radius:10px;
+  background: linear-gradient(180deg, var(--glass-top), var(--glass-bottom));
+  color:var(--text-strong); font-weight:700; border:1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 8px 26px rgba(2,6,12,0.34); cursor:pointer; transition: transform .12s ease;
+}
+.en-btn:hover{ transform: translateY(-4px) }
+
+/* fadeout */
+.welcome-root.fadeout .welcome-bg{ transform:scale(1.06); filter:brightness(0.28) contrast(0.9); transition: all .6s ease; }
+.welcome-root.fadeout .center-wrap, .welcome-root.fadeout .down-arrow, .welcome-root.fadeout .en-btn { opacity:0; transform: translateY(8px) scale(.995); transition: all .6s ease }
+
+/* 鼠标点击 ripple 特效 */
+.ripple {
+  position: absolute;
+  border-radius: 999px;
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  background: var(--ripple);
+  mix-blend-mode: screen;
+  animation: rippleAnim 650ms cubic-bezier(.2,.7,.3,1);
+  z-index:9999;
+}
+@keyframes rippleAnim {
+  to { transform: translate(-50%, -50%) scale(12); opacity: 0; }
+}
+
+/* 小动画 / 工具 */
+@keyframes blink{0%{opacity:1}50%{opacity:0}100%{opacity:1}}
+@keyframes cardIn{from{opacity:0; transform:translateY(12px) scale(.992)} to{opacity:1; transform:none}}
+
+/* 响应式 */
+@media (max-width:680px){
+  .title{ font-size: clamp(24px, 12vw, 46px) }
+  .typed{ font-size:14px }
+  .down-arrow{ width:52px; height:52px; bottom:18px }
+  .en-btn{ right:12px; bottom:12px; min-width:44px; min-height:40px }
+}

@@ -1,0 +1,134 @@
+/* welcome.css — 中文版欢迎页（简约+高级） */
+:root{
+  --accent:#6f99b6;
+  --text-bright:#f6f7f8;
+  --typed-color:#bfc6c9;
+  --overlay-dark: rgba(8,10,12,0.66);
+  --glass-top: rgba(255,255,255,0.03);
+  --glass-bottom: rgba(255,255,255,0.01);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:"Poppins","Microsoft YaHei","微软雅黑",system-ui,Arial}
+body{background:#000;color:var(--text-bright);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+/* 根容器和背景 */
+.welcome-root{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.welcome-bg{
+  position:absolute; inset:0;
+  background-image:url('../assets/background.jpg');
+  background-size:cover; background-position:center center;
+  transform:scale(1.02);
+  filter:contrast(0.92) saturate(0.96);
+  z-index:0;
+  transition: transform .9s ease, filter .9s ease;
+}
+.welcome-bg::after{
+  content:""; position:absolute; inset:0; background: linear-gradient(120deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+  mix-blend-mode:soft-light; pointer-events:none; animation: bgShift 20s linear infinite; opacity:0.58;
+}
+@keyframes bgShift { 0%{transform:translateX(-3%)}50%{transform:translateX(3%)}100%{transform:translateX(-3%)} }
+
+.overlay{ position:absolute; inset:0; z-index:1; background: linear-gradient(180deg, rgba(6,8,10,0.48), var(--overlay-dark)); backdrop-filter: blur(2px); }
+
+/* 中央卡片 */
+.welcome-card{
+  position:relative; z-index:3;
+  width:min(820px,92%); padding:28px 30px; border-radius:12px; text-align:center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  box-shadow: 0 38px 90px rgba(2,6,12,0.64);
+  border:1px solid rgba(255,255,255,0.03);
+  transform: translateY(6px);
+  animation: cardIn .6s cubic-bezier(.2,.9,.13,1) both;
+}
+
+/* 标题：只显示“欢迎” */
+.title{
+  margin:0 0 8px 0;
+  font-size: clamp(34px, 6.4vw, 64px);
+  line-height:1;
+  letter-spacing:0.6px;
+  color:var(--text-bright);
+  font-weight:800;
+}
+
+/* 打字行：使用 Poppins 显示较粗的英文字与数字，中文回退 */
+.typed-wrap{ display:flex; align-items:center; justify-content:center; gap:8px; min-height:48px; margin-top:6px; margin-bottom:14px; }
+.typed{
+  font-family:"Poppins","Microsoft YaHei","微软雅黑",sans-serif;
+  font-weight:600; font-size: clamp(14px, 2.0vw, 20px);
+  color: var(--typed-color); letter-spacing:0.4px; white-space:pre;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.45);
+}
+.cursor{ color:var(--accent); opacity:1; animation: blink 1s steps(2,end) infinite; font-size:1.02em; margin-left:2px; }
+
+/* 翻页暗示（底部中央） */
+.flip-hint{
+  position:fixed; left:50%; transform:translateX(-50%); bottom:34px; z-index:40;
+  width:56px; height:56px; border-radius:10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 12px 34px rgba(2,6,12,0.36);
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.flip-hint:active{ transform: translateX(-50%) translateY(2px) scale(.996) }
+.flip-hint .page{
+  width:22px; height:28px; border-radius:3px; background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
+  position:relative; box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+  transform-origin:center;
+  animation: pageFlip 2.2s ease-in-out infinite;
+}
+.flip-hint .page::after{
+  content:""; position:absolute; right:3px; top:6px; width:6px; height:6px; border-radius:1px;
+  background:rgba(0,0,0,0.06); transform:rotate(10deg);
+}
+@keyframes pageFlip{
+  0%{ transform: rotateX(0deg) translateY(0) }
+  30%{ transform: rotateX(-28deg) translateY(-4px) }
+  60%{ transform: rotateX(8deg) translateY(0) }
+  100%{ transform: rotateX(0deg) translateY(0) }
+}
+/* 小箭头提示（可用作二次提示） */
+.flip-hint .chev{
+  position:absolute; bottom:8px; left:50%; transform:translateX(-50%); width:10px; height:10px;
+  border-left:2px solid rgba(255,255,255,0.14); border-bottom:2px solid rgba(255,255,255,0.14);
+  transform-origin:center; transform: rotate(-45deg);
+  opacity:0.9;
+  animation: chevBounce 1.6s infinite ease-in-out;
+}
+@keyframes chevBounce{
+  0%{ transform: translateX(-50%) translateY(0) rotate(-45deg); opacity:0.9 }
+  50%{ transform: translateX(-50%) translateY(6px) rotate(-45deg); opacity:0.6 }
+  100%{ transform: translateX(-50%) translateY(0) rotate(-45deg); opacity:0.9 }
+}
+
+/* 右下 EN 按钮（低调） */
+.en-btn{
+  position:fixed; right:22px; bottom:20px; z-index:45;
+  min-width:48px; min-height:44px; padding:8px 10px; border-radius:10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  color:var(--text-bright); font-weight:700; border:1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 8px 24px rgba(2,6,12,0.3); cursor:pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.en-btn:hover{ transform: translateY(-4px); box-shadow:0 16px 40px rgba(2,6,12,0.36) }
+.en-btn:active{ transform: translateY(-2px) }
+
+/* fadeout 动画（点击后） */
+.welcome-root.fadeout .welcome-card{ opacity:0; transform:translateY(6px) scale(.99); transition: opacity .6s ease, transform .6s ease; }
+.welcome-root.fadeout .welcome-bg{ transform:scale(1.06); filter:brightness(0.28) contrast(0.9); transition: transform .6s ease, filter .6s ease; }
+.welcome-root.fadeout .flip-hint, .welcome-root.fadeout .en-btn { opacity:0; transform:translateY(8px) scale(.985); transition: all .6s ease; }
+
+/* 小工具 & 动画 */
+@keyframes blink{ 0%{opacity:1}50%{opacity:0}100%{opacity:1} }
+@keyframes cardIn{ from{opacity:0; transform:translateY(22px) scale(.994)} to{opacity:1; transform:none} }
+
+/* 响应式 */
+@media (max-width:680px){
+  .welcome-card{ padding:18px 14px; border-radius:12px; }
+  .title{ font-size: clamp(22px, 12vw, 36px) }
+  .typed{ font-size:14px }
+  .flip-hint{ width:48px; height:48px; bottom:22px }
+  .en-btn{ right:14px; bottom:14px; min-width:44px; min-height:40px }
+}

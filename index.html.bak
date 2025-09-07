@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-	
+	<script>
+  // 若你希望首次访问自动跳到 welcome.html，请把此段粘到 index.html 的 <head> 中（一行即可）。
+  try {
+    if (!localStorage.getItem('seenWelcome') && !location.pathname.endsWith('/welcome.html')) {
+      // 跳到欢迎页（不带缓存参数）
+      location.href = 'welcome.html';
+    }
+  } catch(e) {
+    // 忽略 localStorage 访问错误
+  }
+</script>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>楼晨笛 · 个人主页</title>
