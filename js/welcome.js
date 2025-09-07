@@ -65,6 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navigating) return;
     navigating = true;
     try { localStorage.setItem('preferredLang', url.includes('lang=en') ? 'en' : 'zh'); } catch (e) {}
+    try { localStorage.setItem('seenWelcome', 'true'); } catch(e) {}
+
     root.classList.add('fadeout');
     setTimeout(() => { window.location.href = url; }, 640);
   }

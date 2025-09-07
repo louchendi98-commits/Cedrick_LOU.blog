@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN">	
 <head>
-	
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>楼晨笛 · 个人主页</title>
   <meta name="description" content="楼晨笛 — 博士研究生｜深地工程与岩石动力学" />
   <link rel="stylesheet" href="css/style.css" />
+  
+  <script>
+  // 首次访问时跳到 welcome.html；若 localStorage.seenWelcome=='true' 则直接留在 index.html
+  try {
+    var isWelcome = location.pathname.endsWith('/welcome.html') || location.pathname.endsWith('welcome.html');
+    if (!isWelcome && !localStorage.getItem('seenWelcome')) {
+      location.replace('welcome.html');
+    }
+  } catch(e) { /* ignore */ }
+</script>
+
+  
   <script defer src="js/main.js"></script>
 </head>
 <body>
